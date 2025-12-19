@@ -88,7 +88,7 @@ const ProviderManagement = () => {
                             <div className="provider-details-compact">
                                 <div className="detail-row">
                                     <MapPin size={16} className="text-muted" />
-                                    <span>{provider.location || 'Mumbai, MH'}</span>
+                                    <span>{provider.contact.location}</span>
                                 </div>
                                 <div className="detail-row">
                                     <Star size={16} className="text-warning" fill="currentColor" />
@@ -96,7 +96,7 @@ const ProviderManagement = () => {
                                 </div>
                                 <div className="detail-row">
                                     <Phone size={16} className="text-muted" />
-                                    <span>{provider.contact}</span>
+                                    <span>{provider.contact.phone}</span>
                                 </div>
                             </div>
 
