@@ -1,103 +1,113 @@
 .sidebar {
-    width: var(--sidebar-width);
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    background: var(--surface);
-    border-right: 1px solid var(--border);
+    transition: transform 0.3s ease;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    z-index: 50;
-    transition: transform 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-header {
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    padding: 0 1.5rem;
-    border-bottom: 1px solid var(--border);
+.sidebar.closed {
+    transform: translateX(-100%);
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 700;
+.sidebar-logo {
+    padding: 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
     color: var(--primary);
-    font-size: 1.25rem;
-}
-
-.brand-logo {
+    /* Orange Logo */
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: var(--primary);
-    color: white;
-    border-radius: var(--radius-sm);
 }
 
-.sidebar-nav {
-    flex: 1;
-    padding: 1.5rem 1rem;
-    overflow-y: auto;
-}
-
-.sidebar-nav ul {
+.nav-list {
     list-style: none;
+    padding: 0 1rem;
+    flex: 1;
+    /* Pushes footer down */
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
+.nav-item {
+    margin-bottom: 0;
+}
+
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
+    gap: 1rem;
+    /* Better icon/text spacing */
+    padding: 1rem 1rem;
+    /* Increased padding */
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
     border-radius: var(--radius-md);
-    color: var(--text-muted);
-    font-weight: 500;
     transition: all 0.2s;
+    font-weight: 500;
 }
 
 .nav-link:hover {
-    background: var(--background);
-    color: var(--text-main);
+    background-color: var(--sidebar-hover);
+    color: white;
 }
 
 .nav-link.active {
-    background: #EEF2FF;
-    /* Indigo 50 */
-    color: var(--primary);
+    background-color: var(--primary);
+    /* Orange Active State */
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-footer {
     padding: 1rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
 }
 
 .logout-btn {
     width: 100%;
-    color: var(--danger);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #EF4444;
+    /* Danger Red for Logout text/icon if desired, or keep white */
 }
 
 .logout-btn:hover {
-    background: #FEF2F2;
-    /* Red 50 */
-    color: #DC2626;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
 }
 
-/* Mobile Responsive */
-.sidebar-overlay {
+/* Mobile Toggle */
+.mobile-toggle {
     display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    padding: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.sidebar-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 40;
+    z-index: 900;
 }
 
 @media (max-width: 768px) {
@@ -109,7 +119,7 @@
         transform: translateX(0);
     }
 
-    .sidebar-overlay.open {
-        display: block;
+    .mobile-toggle {
+        display: flex;
     }
 }

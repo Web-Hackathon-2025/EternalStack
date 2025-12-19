@@ -1,58 +1,53 @@
-import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, Calendar, ShieldAlert, LogOut } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import { Link, useLocation } from 'react-router-dom';
+import { LayoutDashboard, Users, Calendar, Shield, LogOut, Menu } from 'lucide-react';
+import { useState } from 'react';
 import './Sidebar.css';
 
-const Sidebar = ({ isOpen, onClose }) => {
-    const { logout } = useAuth();
+const Sidebar = () => {
+    const location = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
 
     const navItems = [
-        { to: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-        { to: '/admin/providers', icon: Users, label: 'Provider Management' },
-        { to: '/admin/bookings', icon: Calendar, label: 'Booking History' },
-        { to: '/admin/moderation', icon: ShieldAlert, label: 'Moderation' },
+        { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
+        { icon: Users, label: 'Provider Management', path: '/admin/providers' },
+        { icon: Calendar, label: 'Booking History', path: '/admin/bookings' },
+        { icon: Shield, label: 'Moderation', path: '/admin/moderation' },
     ];
+
+    const toggleSidebar = () => setIsOpen(!isOpen);
 
     return (
         <>
-            {/* Overlay for mobile */}
-            <div
-                className={`sidebar-overlay ${isOpen ? 'open' : ''}`}
-                onClick={onClose}
-            />
-
-            <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
-                <div className="sidebar-header">
-                    <div className="brand">
-                        <span className="brand-logo">K</span>
-                        <span className="brand-name">Karigar Admin</span>
-                    </div>
+            <button className="mobile-toggle" onClick={toggleSidebar}>
+                <Menu size={24} />
+            </button>
+            <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+                <div className="sidebar-logo">
+                    Karigar Admin
                 </div>
 
-                <nav className="sidebar-nav">
-                    <ul>
-                        {navItems.map((item) => (
-                            <li key={item.to}>
-                                <NavLink
-                                    to={item.to}
-                                    className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-                                    onClick={() => window.innerWidth < 768 && onClose()}
-                                >
-                                    <item.icon size={20} />
-                                    <span>{item.label}</span>
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
+                <ul className="nav-list">
+                    {navItems.map((item) => (
+                        <li key={item.path} className="nav-item">
+                            <Link
+                                to={item.path}
+                                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                            >
+                                <item.icon size={20} />
+                                <span>{item.label}</span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
 
                 <div className="sidebar-footer">
-                    <button onClick={logout} className="nav-link logout-btn">
+                    <button className="nav-link logout-btn">
                         <LogOut size={20} />
                         <span>Logout</span>
                     </button>
                 </div>
-            </aside>
+            </div>
+            {isOpen && <div className="sidebar-overlay" onClick={() => setIsOpen(false)} />}
         </>
     );
 };

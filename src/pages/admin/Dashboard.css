@@ -4,100 +4,64 @@
     gap: 2rem;
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+.page-title {
+    padding-left: 0.5rem;
+    /* Consistency with Provider Header */
 }
 
-.stat-card {
-    background: var(--surface);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.stat-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bg-indigo-100 {
-    background: #E0E7FF;
-    color: #4F46E5;
-}
-
-.bg-blue-100 {
-    background: #DBEAFE;
-    color: #2563EB;
-}
-
-.bg-green-100 {
-    background: #DCFCE7;
-    color: #166534;
-}
-
-.bg-purple-100 {
-    background: #F3E8FF;
-    color: #9333EA;
-}
-
-.bg-yellow-100 {
-    background: #FEF9C3;
-    color: #CA8A04;
-}
-
-.stat-info {
+.stat-content {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .stat-label {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.stat-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-main);
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--secondary);
 }
 
-.chart-section {
-    background: var(--surface);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
+.stat-card-highlight .text-primary {
+    color: var(--primary);
 }
 
 .chart-container {
     margin-top: 1rem;
 }
 
-.recent-section {
-    background: var(--surface);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
+/* Grid Scaling for Stats */
+.dashboard-page .card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
 }
 
-.activity-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+@media (min-width: 768px) {
+    .dashboard-page .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.section-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-main);
+@media (min-width: 1024px) {
+
+    /* Laptop */
+    .dashboard-page .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 Stats fit nicely on laptop */
+    }
 }
