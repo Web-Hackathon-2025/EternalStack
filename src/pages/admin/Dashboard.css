@@ -45,7 +45,7 @@
 }
 
 /* Grid Scaling for Stats */
-.card-grid {
+.dashboard-page .card-grid {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr;
