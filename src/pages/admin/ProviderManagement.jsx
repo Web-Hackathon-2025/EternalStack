@@ -104,37 +104,37 @@ const ProviderManagement = () => {
                                 {provider.status === 'Pending' && (
                                     <Button
                                         variant="primary"
-                                        size="sm"
+                                        size="md"
                                         className="action-btn-full"
                                         onClick={() => handleStatusUpdate(provider.id, 'Approved')}
                                     >
-                                        <Check size={16} /> Approve
+                                        <Check size={18} /> Approve
                                     </Button>
                                 )}
                                 {provider.status === 'Approved' && (
                                     <Button
                                         variant="danger"
-                                        size="sm"
+                                        size="md"
                                         onClick={() => handleStatusUpdate(provider.id, 'Suspended')}
                                     >
-                                        <Ban size={16} /> Suspend
+                                        <Ban size={18} /> Suspend
                                     </Button>
                                 )}
                                 {provider.status === 'Suspended' && (
                                     <Button
                                         variant="primary"
-                                        size="sm"
+                                        size="md"
                                         onClick={() => handleStatusUpdate(provider.id, 'Approved')}
                                     >
-                                        <Check size={16} /> Re-Approve
+                                        <Check size={18} /> Re-Approve
                                     </Button>
                                 )}
                                 <Button
                                     variant="outline"
-                                    size="sm"
+                                    size="md"
                                     onClick={() => setSelectedProvider(provider)}
                                 >
-                                    <Eye size={16} /> View
+                                    <Eye size={18} /> View
                                 </Button>
                             </div>
                         </Card>

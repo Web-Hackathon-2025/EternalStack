@@ -38,3 +38,11 @@
 .chart-container {
     margin-top: 1rem;
 }
+
+/* Desktop Optimization */
+@media (min-width: 1024px) {
+    .dashboard-page .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* Force 4 columns for stats */
+    }
+}
