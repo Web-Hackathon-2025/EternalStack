@@ -12,6 +12,8 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    /* Ensure no overlap with sidebar by trusting the main-content padding/margin */
+    padding-left: 0.5rem;
 }
 
 .header-actions {
@@ -21,11 +23,29 @@
     justify-content: flex-end;
 }
 
-/* Tighter grid for desktop "fit" */
+/* Responsive Grid Scaling: grid-cols-1 md:2 lg:3 */
 .card-grid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1440px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .provider-card {

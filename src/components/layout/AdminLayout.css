@@ -9,22 +9,36 @@
     display: flex;
     flex-direction: column;
     margin-left: 260px;
-    /* Exact match to sidebar width */
-    width: calc(100% - 260px);
-    min-height: 100vh;
+    /* Fixed sidebar width */
+    max-width: 1440px;
+    /* Laptop constraint */
+    min-width: 0;
+    /* Fix flex child overflow issues */
+}
+
+/* Ensure centering on very large screens if desired, or just cap the width? 
+   User says "prevent it from stretching too far". */
+@media (min-width: 1700px) {
+    .main-content {
+        margin-right: auto;
+        /* Since margin-left is fixed 260px, we might want to center the remaining space 
+           but typically admin panels keep left nav aligned. 
+           Let's just keep the container constrained. */
+    }
 }
 
 .page-content {
     padding: 2rem;
-    /* padding-bottom: 2rem;  handled by page specific or general */
     flex: 1;
     overflow-y: auto;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
     .main-content {
         margin-left: 0;
         width: 100%;
+        max-width: none;
     }
 
     .page-content {

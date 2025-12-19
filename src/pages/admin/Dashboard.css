@@ -4,6 +4,11 @@
     gap: 2rem;
 }
 
+.page-title {
+    padding-left: 0.5rem;
+    /* Consistency with Provider Header */
+}
+
 .stat-content {
     display: flex;
     flex-direction: column;
@@ -39,10 +44,24 @@
     margin-top: 1rem;
 }
 
-/* Desktop Optimization */
+/* Grid Scaling for Stats */
+.card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .dashboard-page .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (min-width: 1024px) {
+
+    /* Laptop */
     .dashboard-page .card-grid {
         grid-template-columns: repeat(4, 1fr);
-        /* Force 4 columns for stats */
+        /* 4 Stats fit nicely on laptop */
     }
 }
