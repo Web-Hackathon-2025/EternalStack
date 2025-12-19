@@ -1,0 +1,18 @@
+.moderation-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}

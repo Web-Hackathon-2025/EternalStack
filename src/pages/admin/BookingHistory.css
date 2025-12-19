@@ -1,0 +1,154 @@
+.booking-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.revenue-card {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ECFDF5;
+    color: #047857;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid #A7F3D0;
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.date-time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+}
+
+/* Inherits most styles from ProviderManagement.css via global classes or duplication if needed.
+   Since we used specific classes in ProviderManagement.css (like .controls-bar), we should ensure they are globally available or duplicated.
+   For simplicity here, assuming similar structure. We'll import ProviderManagement.css in the component or duplicate essential blocks.
+*/
+
+/* Duplicating essential blocks for self-containment/isolation */
+
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-tab {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.filter-tab:hover {
+    background: var(--background);
+    color: var(--text-main);
+}
+
+.filter-tab.active {
+    background: #EEF2FF;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.table-search {
+    display: flex;
+    align-items: center;
+    background: var(--background);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    gap: 0.5rem;
+    width: 250px;
+    color: var(--text-muted);
+}
+
+.table-search input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+.table-wrapper {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background: var(--background);
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .table-search {
+        width: 100%;
+    }
+
+    /* Hide less critical columns on mobile */
+    .data-table th:nth-child(3),
+    .data-table td:nth-child(3),
+    /* Provider */
+    .data-table th:nth-child(4),
+    .data-table td:nth-child(4)
+
+    /* Date */
+        {
+        display: none;
+    }
+}
