@@ -38,7 +38,7 @@ const MOCK_PROVIDERS = [
     {
         id: 3,
         name: 'Sneha Patel',
-        category: 'Beautician',
+        category: 'Technician',
         status: 'Approved',
         rating: 4.9,
         joinedDate: '2024-12-05',
@@ -48,15 +48,15 @@ const MOCK_PROVIDERS = [
             location: 'Bangalore, KA'
         },
         services: [
-            { name: 'Facial', price: 800 },
-            { name: 'Haircut', price: 400 },
-            { name: 'Manicure', price: 600 }
+            { name: 'AC Repair', price: 800 },
+            { name: 'Microwave Repair', price: 400 },
+            { name: 'Filter Change', price: 600 }
         ]
     },
     {
         id: 4,
         name: 'Vikram Singh',
-        category: 'Carpenter',
+        category: 'Cleaner',
         status: 'Suspended',
         rating: 2.5,
         joinedDate: '2024-11-20',
@@ -66,8 +66,8 @@ const MOCK_PROVIDERS = [
             location: 'Pune, MH'
         },
         services: [
-            { name: 'Furniture Repair', price: 1000 },
-            { name: 'Door Installation', price: 800 }
+            { name: 'Deep Cleaning', price: 1000 },
+            { name: 'Sofa Cleaning', price: 800 }
         ]
     }
 ];

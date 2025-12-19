@@ -1,7 +1,9 @@
 .provider-page {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    /* Prevent clipping at bottom */
 }
 
 .page-header {
@@ -19,57 +21,42 @@
     justify-content: flex-end;
 }
 
-.search-box {
-    display: flex;
-    align-items: center;
-    background: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    gap: 0.5rem;
-    width: 250px;
+/* Card Utility Override for this page if needed */
+.card-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* Gap-6 approximation (1.5rem = 24px) */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
-.search-box input {
-    border: none;
-    outline: none;
-    width: 100%;
-}
-
-.filter-select {
-    padding: 0.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    background: white;
-}
-
-/* Card Styles */
 .provider-card {
     transition: transform 0.2s;
+    border: 1px solid #E2E8F0;
 }
 
 .provider-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #CBD5E1;
 }
 
 .provider-header {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .provider-avatar {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     background: var(--secondary);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
@@ -78,32 +65,47 @@
 }
 
 .provider-name {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-main);
+    color: #0F172A;
+    /* Slate 900 - High Contrast */
     margin: 0;
+    line-height: 1.2;
 }
 
 .provider-category {
-    font-size: 0.875rem;
-    color: var(--text-muted);
+    font-size: 0.9rem;
+    color: #475569;
+    /* Slate 600 - Readable */
+    font-weight: 500;
+}
+
+.status-badge-wrapper {
+    flex-shrink: 0;
 }
 
 .provider-details-compact {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--border);
 }
 
 .detail-row {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--text-main);
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: #334155;
+    /* Dark Charcoal - High Contrast */
+    font-weight: 500;
+}
+
+.text-high-contrast {
+    color: #1E293B;
+    /* Very Dark Slate */
 }
 
 .provider-actions {

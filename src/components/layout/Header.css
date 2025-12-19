@@ -1,56 +1,46 @@
 .header {
-    height: var(--header-height);
-    background: var(--surface);
+    background-color: var(--header-bg);
+    height: 72px;
+    /* Fixed height for consistency */
     border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.5rem;
     position: sticky;
     top: 0;
-    z-index: 30;
+    z-index: 50;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-}
-
-.menu-btn {
+.menu-toggle {
     display: none;
-    color: var(--text-muted);
 }
 
-.search-bar {
+.search-container {
     display: flex;
     align-items: center;
-    background: var(--background);
+    background-color: var(--background);
     padding: 0.5rem 1rem;
-    border-radius: var(--radius-md);
-    width: 100%;
-    max-width: 400px;
+    border-radius: 9999px;
+    /* Pill shape */
     border: 1px solid transparent;
+    width: 300px;
     transition: all 0.2s;
 }
 
-.search-bar:focus-within {
+.search-container:focus-within {
     border-color: var(--primary);
     background: white;
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+    box-shadow: 0 0 0 3px rgba(245, 101, 35, 0.1);
 }
 
-.search-icon {
-    color: var(--text-muted);
-    margin-right: 0.75rem;
-}
-
-.search-bar input {
-    background: none;
+.search-input {
     border: none;
+    background: transparent;
+    margin-left: 0.5rem;
+    flex: 1;
     outline: none;
-    width: 100%;
+    font-size: 0.9rem;
     color: var(--text-main);
 }
 
@@ -58,50 +48,53 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    /* Better spacing */
 }
 
 .icon-btn {
-    position: relative;
+    background: none;
+    border: none;
     color: var(--text-muted);
+    cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
     transition: all 0.2s;
+    display: flex;
+    /* alignment */
+    align-items: center;
+    justify-content: center;
 }
 
 .icon-btn:hover {
-    background: var(--background);
+    background-color: var(--background);
     color: var(--text-main);
-}
-
-.notification-dot {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 8px;
-    height: 8px;
-    background: var(--danger);
-    border-radius: 50%;
-    border: 2px solid var(--surface);
 }
 
 .user-profile {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding-left: 1.5rem;
-    border-left: 1px solid var(--border);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s;
+}
+
+.user-profile:hover {
+    background-color: var(--background);
 }
 
 .avatar {
     width: 36px;
     height: 36px;
-    background: var(--primary);
+    background-color: var(--primary);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
+    font-size: 1rem;
 }
 
 .user-info {
@@ -110,8 +103,9 @@
 }
 
 .user-name {
-    font-weight: 500;
-    font-size: 0.875rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 .user-role {
@@ -120,18 +114,19 @@
 }
 
 @media (max-width: 768px) {
-    .menu-btn {
+    .header {
+        padding: 0 1rem;
+        height: 64px;
+    }
+
+    .menu-toggle {
         display: block;
+        margin-right: 1rem;
     }
 
-    .search-bar {
-        max-width: 200px;
-    }
-
-    .user-info,
-    .user-profile {
-        border: none;
-        padding: 0;
+    .search-container {
+        display: none;
+        /* Hide search on mobile header for space, maybe show icon */
     }
 
     .user-info {
